@@ -26,4 +26,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)\bin\Debug\netstandard2.1\*.*&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Monster Train 2\BepInEx\plugins\MT2GraftService&quot; /Y /I /E" />
+  </Target>-->
 </Project>

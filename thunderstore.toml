@@ -4,9 +4,9 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "GravitonGamer"
 name = "MT2GraftService"
-versionNumber = "0.0.1"
+versionNumber = "1.0.0"
 description = "A mod for Monster Train 2 that adds an equipment grafting service to most merchants."
-websiteUrl = "https://thunderstore.io"
+websiteUrl = "https://github.com/Jace17/MT2GraftService"
 containsNsfwContent = false
 
 [package.dependencies]

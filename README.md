@@ -1,12 +1,14 @@
 # MT2GraftService
 
-A mod for Monster Train 2 that adds an equipment grafting service to most merchants.
+A mod for Monster Train 2 that adds an equipment grafting service to most merchants. Also has configuration options for a card duplication service and upgrading soul savior mode merchants.
 
 # Features
 
 - Allows you to graft an equipment to a unit at most merchants
 - The cost of the service is 50, 100, 150, 200, and 250 gold for each time it is used
 - Because of UI limitations, a merchant can't have more than 4 services so the graft service won't be added if a merchant already has 4 services
+- Configuration option to add a card duplication service (disabled by default)
+- Configuration option to upgrade all soul savior mode merchants (disabled by default)
 
 # Installation
 

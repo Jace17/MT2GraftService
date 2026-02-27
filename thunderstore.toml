@@ -4,14 +4,14 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "GravitonGamer"
 name = "MT2GraftService"
-versionNumber = "1.2.0"
-description = "A mod for Monster Train 2 that adds an equipment grafting service to most merchants."
+versionNumber = "1.2.1"
+description = "A mod for Monster Train 2 that adds an equipment grafting service to most merchants. Also has configuration options for a card duplication service and upgrading soul savior mode merchants."
 websiteUrl = "https://github.com/Jace17/MT2GraftService"
 containsNsfwContent = false
 
 [package.dependencies]
 BepInEx-BepInExPack = "5.4.2100"
-MT2-Trainworks_Reloaded = "0.7.2"
+MT2-Trainworks_Reloaded = "0.7.8"
 
 [build]
 icon = "./icon.png"

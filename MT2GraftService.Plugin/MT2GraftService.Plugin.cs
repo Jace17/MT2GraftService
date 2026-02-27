@@ -26,20 +26,7 @@ namespace MT2GraftService.Plugin
 
             // Uncomment if you need harmony patches, if you are writing your own custom effects.
             var harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
-            if (graftServiceEnabled.Value)
-            {
-                harmony.PatchAll(typeof(AddGraftService).Assembly);
-                harmony.PatchAll(typeof(OverrideRewardTitle).Assembly);
-                harmony.PatchAll(typeof(OverrideRewardDescription).Assembly);
-            }
-            if (copyServiceEnabled.Value)
-            {
-                harmony.PatchAll(typeof(AddCopyService).Assembly);
-            }
-            if (soulSaviorUpgradeEnabled.Value)
-            {
-                harmony.PatchAll(typeof(UpgradeAllMajorNodes).Assembly);
-            }
+            harmony.PatchAll();
         }
     }
 
@@ -49,6 +36,12 @@ namespace MT2GraftService.Plugin
         public static readonly ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("AddGraftService");
         public static void Postfix(SaveManager __instance, List<MerchantGoodState> __result)
         {
+            if (Plugin.graftServiceEnabled != null && !Plugin.graftServiceEnabled.Value)
+            {
+                Log.LogInfo("Graft service is disabled in config. Not adding graft service.");
+                return; // If the graft service is disabled in the config, do not add the graft service
+            }
+
             if (__result.FindAll(x => x.IsService).Count > 3)
             {
                 Log.LogInfo("Too many services. Not adding graft service.");
@@ -76,6 +69,12 @@ namespace MT2GraftService.Plugin
         public static readonly ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("AddCopyService");
         public static void Postfix(SaveManager __instance, List<MerchantGoodState> __result)
         {
+            if (Plugin.copyServiceEnabled != null && !Plugin.copyServiceEnabled.Value)
+            {
+                Log.LogInfo("Copy service is disabled in config. Not adding copy service.");
+                return; // If the copy service is disabled in the config, do not add the copy service
+            }
+
             if (__result.FindAll(x => x.IsService).Count > 3)
             {
                 Log.LogInfo("Too many services. Not adding copy service.");
@@ -127,6 +126,12 @@ namespace MT2GraftService.Plugin
         public static readonly ManualLogSource Log = Logger.CreateLogSource("UpgradeAllMajorNodes");
         public static void Postfix(SaveManager __instance)
         {
+            if (Plugin.soulSaviorUpgradeEnabled != null && !Plugin.soulSaviorUpgradeEnabled.Value)
+            {
+                Log.LogInfo("Soul Savior upgrade is disabled in config. Not upgrading major nodes.");
+                return; // If the soul savior upgrade is disabled in the config, do not upgrade major nodes.
+            }
+
             RegionRunSetupHelper.Cheat_UpgradeAllMajorNodes(__instance);
         }
     }

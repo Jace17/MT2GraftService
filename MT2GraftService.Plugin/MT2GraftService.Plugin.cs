@@ -15,9 +15,9 @@ namespace MT2GraftService.Plugin
         internal static new ManualLogSource Logger = new(MyPluginInfo.PLUGIN_GUID);
         public void Awake()
         {
-            graftServiceEnabled = Config.Bind("General", "GraftServiceEnabled", true, "Enable graft service if merchant slots are available.");
-            copyServiceEnabled = Config.Bind("General", "CopyServiceEnabled", false, "Enable copy service if merchant slots are available.");
-            soulSaviorUpgradeEnabled = Config.Bind("General", "SoulSaviorUpgradeEnabled", false, "Upgrade all major nodes in Soul Savior mode.");
+            graftServiceEnabled = Config.Bind("General", "GraftServiceEnabled", true, "Enable graft service if merchant slots are available.\n是否在栏位足够的情况下增添嫁接装备服务。");
+            copyServiceEnabled = Config.Bind("General", "CopyServiceEnabled", false, "Enable copy service if merchant slots are available.\n是否在栏位足够的情况下增添复制卡牌服务。");
+            soulSaviorUpgradeEnabled = Config.Bind("General", "SoulSaviorUpgradeEnabled", false, "Upgrade all major nodes in Soul Savior mode.\n灵魂救星模式中是否直接升级全部主要奖励。");
 
             // Plugin startup logic
             Logger = base.Logger;
